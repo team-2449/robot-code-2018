@@ -23,6 +23,11 @@ public class Vision extends Subsystem {
 	//get the color of the switch lights surrounding the vision target	
 	}
 	
+	public void getTeamColor() {
+	//get current team Color, Red or Blue
+	//NEEDS TO RETURN A VALUE SOMEHOW
+	}
+	
 	
 
     public void initDefaultCommand() {
