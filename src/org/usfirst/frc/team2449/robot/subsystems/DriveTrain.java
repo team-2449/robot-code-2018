@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2449.robot.subsystems;
 
-import com.ctre.CANTalon.TalonControlMode;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -16,7 +16,7 @@ public class DriveTrain extends Subsystem {
 		//Basic Driving using direct power mapping
 	}
 	
-	public void changeControlMode(TalonControlMode controlMode) {
+	public void changeControlMode(ControlMode controlMode) {
 		//Change Talon SRX Control Mode
 	}
 
