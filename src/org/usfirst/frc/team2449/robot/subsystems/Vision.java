@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2449.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -23,9 +25,9 @@ public class Vision extends Subsystem {
 	//get the color of the switch lights surrounding the vision target	
 	}
 	
-	public void getTeamColor() {
+	public Alliance getTeamColor() {	
 	//get current team Color, Red or Blue
-	//NEEDS TO RETURN A VALUE SOMEHOW
+		return DriverStation.getInstance().getAlliance();
 	}
 	
 	
