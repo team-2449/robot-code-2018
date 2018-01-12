@@ -19,8 +19,10 @@ public class RobotMap {
 	//DriveTrain Variables
 	public static int left1TalonPort=0;
 	public static int left2TalonPort=1;
-	public static int right1TalonPort=2;
-	public static int right2TalonPort=3;
+	public static int left3TalonPort=2;
+	public static int right1TalonPort=3;
+	public static int right2TalonPort=4;
+	public static int right3TalonPort=5;
 	
 	
 	//Control Variables

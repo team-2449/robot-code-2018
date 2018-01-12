@@ -16,8 +16,10 @@ public class DriveTrain extends Subsystem {
 	
 	CANTalon left1Talon = new CANTalon(RobotMap.left1TalonPort);
 	CANTalon left2Talon = new CANTalon(RobotMap.left2TalonPort);
+	CANTalon left3Talon = new CANTalon(RobotMap.left3TalonPort);
 	CANTalon right1Talon = new CANTalon(RobotMap.right1TalonPort);
 	CANTalon right2Talon = new CANTalon(RobotMap.right2TalonPort);
+	CANTalon right3Talon = new CANTalon(RobotMap.right3TalonPort);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
@@ -25,8 +27,10 @@ public class DriveTrain extends Subsystem {
 		//Basic Driving using direct power mapping
 		left1Talon.set(-leftPower);
 		left2Talon.set(-leftPower);
+		left3Talon.set(-leftPower);
 		right1Talon.set(rightPower);
 		right2Talon.set(rightPower);
+		right3Talon.set(rightPower);
 		
 	}
 	
