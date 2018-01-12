@@ -1,9 +1,12 @@
 package org.usfirst.frc.team2449.robot.subsystems;
 
+
 import org.usfirst.frc.team2449.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -26,13 +29,10 @@ public class DriveTrain extends Subsystem {
 	
 	public void basicDrive(double leftPower, double rightPower) {
 		//Basic Driving using direct power mapping
-
 		left1Talon.set(ControlMode.PercentOutput, -leftPower);
 		left2Talon.set(ControlMode.PercentOutput, -leftPower);
 		right1Talon.set(ControlMode.PercentOutput, rightPower);
 		right2Talon.set(ControlMode.PercentOutput, rightPower);
-
-		
 	}
 
     public void initDefaultCommand() {
