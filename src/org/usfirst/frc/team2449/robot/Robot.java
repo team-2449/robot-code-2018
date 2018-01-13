@@ -8,7 +8,9 @@
 package org.usfirst.frc.team2449.robot;
 
 import org.usfirst.frc.team2449.robot.commands.BasicDrive;
+import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team2449.robot.subsystems.Metrics;
 import org.usfirst.frc.team2449.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -25,9 +27,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends TimedRobot {
+	
+	//SubSystems
 	public static final DriveTrain robotDriveTrain = new DriveTrain();
-	public static final BasicDrive basicDrive = new BasicDrive();
 	public static final Vision robotVision = new Vision();
+	public static final Metrics robotMetrics = new Metrics();
+	
+	//Commands
+	BasicDrive basicDrive = new BasicDrive();
+	DisplayMetrics displayMetrics = new DisplayMetrics();
+	
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
@@ -102,6 +111,9 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
+		basicDrive.start();
+		displayMetrics.start();
+		
 	}
 
 	/**
@@ -109,7 +121,7 @@ public class Robot extends TimedRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		basicDrive.start();
+		
 	}
 
 	/**
