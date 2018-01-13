@@ -59,7 +59,7 @@ public class Robot extends TimedRobot {
 	 * the robot is disabled.
 	 */
 	public void disabledInit() {
-
+		
 	}
 
 	public void disabledPeriodic() {
@@ -80,7 +80,7 @@ public class Robot extends TimedRobot {
 	
 	public void autonomousInit() {
 		m_autonomousCommand = m_chooser.getSelected();
-
+		displayMetrics.start();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -112,7 +112,7 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand.cancel();
 		}
 		basicDrive.start();
-		displayMetrics.start();
+		
 		
 	}
 

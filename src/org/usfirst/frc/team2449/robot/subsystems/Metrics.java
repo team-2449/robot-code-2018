@@ -14,10 +14,6 @@ public class Metrics extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	public void displayVoltage() {
-		SmartDashboard.putNumber("Battery Voltage", PDPJNI.getPDPVoltage(0));
-	}
-	
 	public void displayTeamColor() {
 		SmartDashboard.putString("Team Color", Robot.robotVision.getTeamColor().toString());
 	}
