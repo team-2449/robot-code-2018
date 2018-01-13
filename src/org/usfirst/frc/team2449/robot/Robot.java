@@ -9,6 +9,7 @@ package org.usfirst.frc.team2449.robot;
 
 import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team2449.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -26,6 +27,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
 	public static final DriveTrain robotDriveTrain = new DriveTrain();
 	public static final BasicDrive basicDrive = new BasicDrive();
+	public static final Vision robotVision = new Vision();
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
