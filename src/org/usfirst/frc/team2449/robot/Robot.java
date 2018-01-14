@@ -11,6 +11,7 @@ import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2449.robot.subsystems.Metrics;
+import org.usfirst.frc.team2449.robot.subsystems.Sensors;
 import org.usfirst.frc.team2449.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -32,6 +33,7 @@ public class Robot extends TimedRobot {
 	public static final DriveTrain robotDriveTrain = new DriveTrain();
 	public static final Vision robotVision = new Vision();
 	public static final Metrics robotMetrics = new Metrics();
+	public static final Sensors robotSensors = new Sensors();
 	
 	//Commands
 	BasicDrive basicDrive = new BasicDrive();
@@ -112,7 +114,7 @@ public class Robot extends TimedRobot {
 			m_autonomousCommand.cancel();
 		}
 		basicDrive.start();
-		
+		displayMetrics.start();
 		
 	}
 
