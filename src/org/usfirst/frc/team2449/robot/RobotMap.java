@@ -24,6 +24,9 @@ public class RobotMap {
 	public static double gyrokP=.03;
 	public static double gyrokI=.05;
 	public static double gyrokD=.15;
+	public static double driveTrainkP;
+	public static double driveTrainkI;
+	public static double driveTrainkD;
 	
 	
 	//Control Variables

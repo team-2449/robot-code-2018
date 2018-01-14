@@ -9,7 +9,6 @@ package org.usfirst.frc.team2449.robot;
 
 import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
-import org.usfirst.frc.team2449.robot.commands.GyroTurn;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2449.robot.subsystems.Metrics;
 import org.usfirst.frc.team2449.robot.subsystems.Sensors;
