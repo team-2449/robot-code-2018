@@ -9,8 +9,10 @@ package org.usfirst.frc.team2449.robot;
 
 import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
+import org.usfirst.frc.team2449.robot.commands.GyroTurn;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2449.robot.subsystems.Metrics;
+import org.usfirst.frc.team2449.robot.subsystems.Sensors;
 import org.usfirst.frc.team2449.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -32,10 +34,7 @@ public class Robot extends TimedRobot {
 	public static final DriveTrain robotDriveTrain = new DriveTrain();
 	public static final Vision robotVision = new Vision();
 	public static final Metrics robotMetrics = new Metrics();
-	
-	//Commands
-	BasicDrive basicDrive = new BasicDrive();
-	DisplayMetrics displayMetrics = new DisplayMetrics();
+	public static final Sensors robotSensors = new Sensors();
 	
 	public static OI m_oi;
 
@@ -80,7 +79,7 @@ public class Robot extends TimedRobot {
 	
 	public void autonomousInit() {
 		m_autonomousCommand = m_chooser.getSelected();
-		displayMetrics.start();
+		new DisplayMetrics().start();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -111,8 +110,8 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
-		basicDrive.start();
-		
+		new BasicDrive().start();
+		new DisplayMetrics().start();
 		
 	}
 
