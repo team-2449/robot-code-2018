@@ -121,7 +121,12 @@ public class Robot extends TimedRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+<<<<<<< HEAD
 		
+=======
+		basicDrive.start();
+		SmartDashboard.putNumber("Pot Value",RobotMap.mastPotentiometer.get());
+>>>>>>> fa855600512d9cc8da7c4db0a5165616b42d5579
 	}
 
 	/**
