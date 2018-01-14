@@ -91,7 +91,6 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
-		new GyroTurn(90).start();
 	}
 
 	/**

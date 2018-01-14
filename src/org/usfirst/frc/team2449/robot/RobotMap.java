@@ -21,9 +21,9 @@ public class RobotMap {
 	public static int right1TalonPort=3;
 	public static int right2TalonPort=4;
 	public static int right3TalonPort=5;
-	public static double gyrokP=.05;
+	public static double gyrokP=.03;
 	public static double gyrokI=.05;
-	public static double gyrokD=.5;
+	public static double gyrokD=.15;
 	
 	
 	//Control Variables
