@@ -31,8 +31,10 @@ public class DriveTrain extends Subsystem {
 		//Basic Driving using direct power mapping
 		left1Talon.set(ControlMode.PercentOutput, -leftPower);
 		left2Talon.set(ControlMode.PercentOutput, -leftPower);
+		left3Talon.set(ControlMode.PercentOutput, -leftPower);
 		right1Talon.set(ControlMode.PercentOutput, rightPower);
 		right2Talon.set(ControlMode.PercentOutput, rightPower);
+		right3Talon.set(ControlMode.PercentOutput, rightPower);
 	}
 
     public void initDefaultCommand() {
