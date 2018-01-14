@@ -7,8 +7,6 @@
 
 package org.usfirst.frc.team2449.robot;
 
-import com.ctre.CANTalon;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -23,6 +21,9 @@ public class RobotMap {
 	public static int right1TalonPort=3;
 	public static int right2TalonPort=4;
 	public static int right3TalonPort=5;
+	public static double gyrokP=.05;
+	public static double gyrokI=.05;
+	public static double gyrokD=.5;
 	
 	
 	//Control Variables
