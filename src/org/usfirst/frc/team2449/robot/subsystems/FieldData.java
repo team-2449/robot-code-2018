@@ -11,6 +11,9 @@ public class FieldData extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+	
+	//The following functions get the side of the switches and scale that contains our team color , viewed from Driver Station
+	//Returns L and R for left and right, respectively
 	public char getScaleSide() {
 		return DriverStation.getInstance().getGameSpecificMessage().charAt(1);
 	}
