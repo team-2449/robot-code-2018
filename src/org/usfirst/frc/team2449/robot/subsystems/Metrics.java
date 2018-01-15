@@ -14,7 +14,7 @@ public class Metrics extends Subsystem {
     // here. Call these from Commands.
 	
 	public void displayTeamColor() {
-		SmartDashboard.putString("Team Color", Robot.robotVision.getTeamColor().toString());
+		SmartDashboard.putString("Team Color", Robot.robotFieldData.getTeamColor().toString());
 	}
 	
 	public void displayGyroHeading() {

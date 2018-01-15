@@ -25,10 +25,7 @@ public class Vision extends Subsystem {
 	//get the color of the switch lights surrounding the vision target	
 	}
 	
-	public Alliance getTeamColor() {	
-	//get current team Color, Red or Blue
-		return DriverStation.getInstance().getAlliance();
-	}
+	
 	
 	
 
