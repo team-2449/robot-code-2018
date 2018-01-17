@@ -21,6 +21,13 @@ public class Metrics extends Subsystem {
 		SmartDashboard.putNumber("Gyro Heading", Robot.robotSensors.robotGyro.getAngle());
 	}
 
+	public void displayDriveTrainDistance( ) {
+		
+		
+		SmartDashboard.putNumber("Left Distance", Robot.robotSensors.left1Encoder.getDistance());
+		SmartDashboard.putNumber("Right Distance", Robot.robotSensors.right1Encoder.getDistance());
+		
+	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

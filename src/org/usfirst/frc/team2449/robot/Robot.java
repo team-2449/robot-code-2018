@@ -9,6 +9,7 @@ package org.usfirst.frc.team2449.robot;
 
 import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
+import org.usfirst.frc.team2449.robot.commands.EncoderDistanceDrive;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2449.robot.subsystems.Metrics;
 import org.usfirst.frc.team2449.robot.subsystems.Sensors;
@@ -49,6 +50,7 @@ public class Robot extends TimedRobot {
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		;
 	}
 
 	/**
@@ -79,6 +81,7 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		m_autonomousCommand = m_chooser.getSelected();
 		new DisplayMetrics().start();
+		new EncoderDistanceDrive(1).start();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand

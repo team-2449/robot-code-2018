@@ -7,6 +7,10 @@
 
 package org.usfirst.frc.team2449.robot;
 
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.interfaces.Potentiometer;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -24,9 +28,12 @@ public class RobotMap {
 	public static double gyrokP=.03;
 	public static double gyrokI=.05;
 	public static double gyrokD=.15;
-	public static double driveTrainkP;
-	public static double driveTrainkI;
-	public static double driveTrainkD;
+	public static double driveTrainkP = .5;
+	public static double driveTrainkI = .0;
+	public static double driveTrainkD = .0;
+	public static Potentiometer mastPotentiometer = new AnalogPotentiometer(0,360,0);
+	
+	
 	
 	
 	//Control Variables
