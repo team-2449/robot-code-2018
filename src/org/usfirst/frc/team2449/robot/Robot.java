@@ -9,8 +9,8 @@ package org.usfirst.frc.team2449.robot;
 
 import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
-import org.usfirst.frc.team2449.robot.commands.GyroTurn;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team2449.robot.subsystems.Manipulator;
 import org.usfirst.frc.team2449.robot.subsystems.Metrics;
 import org.usfirst.frc.team2449.robot.subsystems.Sensors;
 import org.usfirst.frc.team2449.robot.subsystems.Vision;
@@ -35,6 +35,7 @@ public class Robot extends TimedRobot {
 	public static final Vision robotVision = new Vision();
 	public static final Metrics robotMetrics = new Metrics();
 	public static final Sensors robotSensors = new Sensors();
+	public static final Manipulator robotManipulator = new Manipulator();
 	
 	public static OI m_oi;
 

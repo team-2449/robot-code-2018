@@ -31,6 +31,7 @@ public class RobotMap {
 
 	
 	//Manipulator Variables
+	public static int armTalonPort=6;
 	
 	//Climber Variables
 	
