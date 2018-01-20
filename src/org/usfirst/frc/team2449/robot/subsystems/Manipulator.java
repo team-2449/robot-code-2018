@@ -1,10 +1,7 @@
 package org.usfirst.frc.team2449.robot.subsystems;
 
-import org.usfirst.frc.team2449.robot.RobotMap;
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
+import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -14,11 +11,19 @@ public class Manipulator extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	TalonSRX armTalon = new TalonSRX(RobotMap.armTalonPort);
+	Talon armTalon = new Talon(2);
+	Spark leftWheel=new Spark(0);
+	Spark rightWheel=new Spark(1);
 	
 	public void setArmPower(double armPower) {
-		armTalon.set(ControlMode.PercentOutput, armPower);
+		armTalon.set(armPower);
 	}
+	
+	public void setIntakePower(double intakePower) {
+		leftWheel.set(intakePower);
+		rightWheel.set(-intakePower);
+	}
+	
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

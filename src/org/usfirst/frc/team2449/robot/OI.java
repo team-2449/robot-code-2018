@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team2449.robot;
 
+import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.commands.ManualArm;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -46,9 +47,11 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	public Joystick driverJoystick = new Joystick(RobotMap.driverJoystickPort);
-	public Button manualArmButton = new JoystickButton(driverJoystick,6);
+	public Button manualArmButton = new JoystickButton(driverJoystick,7);
+	public Button manualIntakeButton = new JoystickButton(driverJoystick,8);
 	
 	public OI() {
-		manualArmButton.whileHeld(new ManualArm());
+		manualArmButton.whenPressed(new ManualArm());
+		manualArmButton.whenReleased(new BasicDrive());
 	}
 }
