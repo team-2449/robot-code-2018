@@ -21,13 +21,25 @@ public class Metrics extends Subsystem {
 		SmartDashboard.putNumber("Gyro Heading", Robot.robotSensors.robotGyro.getAngle());
 	}
 
-	public void displayDriveTrainDistance( ) {
-		
-		
+	public void displayDriveTrainDistance() {
 		SmartDashboard.putNumber("Left Distance", Robot.robotSensors.left1Encoder.getDistance());
 		SmartDashboard.putNumber("Right Distance", Robot.robotSensors.right1Encoder.getDistance());
 		
 	}
+	
+	public void displayCurrent() {
+		SmartDashboard.putNumber("Port 0", Robot.robotBattery.current0);
+		SmartDashboard.putNumber("Port 1", Robot.robotBattery.current1);
+		SmartDashboard.putNumber("Port 2", Robot.robotBattery.current2);
+		SmartDashboard.putNumber("Port 3", Robot.robotBattery.current3);
+		SmartDashboard.putNumber("Port 5", Robot.robotBattery.current6);
+		SmartDashboard.putNumber("Total Current", Robot.robotBattery.currentAll);
+	}
+	
+	public void displayPotentiometer() {
+		SmartDashboard.putNumber("Potentiometer Degrees", Robot.robotSensors.mastPotentiometer.get());
+	}
+	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

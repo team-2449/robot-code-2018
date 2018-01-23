@@ -19,28 +19,29 @@ public class EncoderDistanceDrive extends Command {
 	private double distance;
     public EncoderDistanceDrive(double distance) {
     	this.distance = distance;
+    	requires(Robot.robotDriveTrain);
+    	requires(Robot.robotSensors);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	//Resets if we already went a distance
+    	Robot.robotSensors.right1Encoder.reset();
+    	Robot.robotSensors.left1Encoder.reset();
+    	
+    	//Allows tolerance 	so that loop ends; never perfect
+    	leftPIDController.setAbsoluteTolerance(5);
+    	rightPIDController.setAbsoluteTolerance(5);
     	
     	//Setting how far the robot will go
     	leftPIDController.setSetpoint(distance);
     	rightPIDController.setSetpoint(distance);
     	
     	//Not in rotations but inches
-    	Robot.robotSensors.left1Encoder.setDistancePerPulse(1/360);
-    	Robot.robotSensors.right1Encoder.setDistancePerPulse(1/360);
     	
-    	//Resets if we already went a distance
-    	Robot.robotSensors.right1Encoder.reset();
-    	Robot.robotSensors.left1Encoder.reset();
     	
-    	//Allows tolerance 	so that loop ends; never perfect
-    	leftPIDController.setAbsoluteTolerance(1);
-    	rightPIDController.setAbsoluteTolerance(1);
     	
     	//What Encoder will get;This case distance
     	Robot.robotSensors.left1Encoder.setPIDSourceType(PIDSourceType.kDisplacement);
@@ -54,7 +55,7 @@ public class EncoderDistanceDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	SmartDashboard.putNumber("Left Distance", Robot.robotSensors.left1Encoder.getDistance());
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

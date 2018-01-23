@@ -24,6 +24,8 @@ public class DisplayMetrics extends Command {
     	Robot.robotMetrics.displayTeamColor();
     	Robot.robotMetrics.displayGyroHeading();
     	Robot.robotMetrics.displayDriveTrainDistance();
+    	Robot.robotMetrics.displayCurrent();
+    	Robot.robotMetrics.displayPotentiometer();
     }
 
     // Make this return true when this Command no longer needs to run execute()

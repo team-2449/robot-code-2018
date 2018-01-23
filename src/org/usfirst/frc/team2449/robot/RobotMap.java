@@ -8,7 +8,6 @@
 package org.usfirst.frc.team2449.robot;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 
 /**
@@ -28,10 +27,10 @@ public class RobotMap {
 	public static double gyrokP=.03;
 	public static double gyrokI=.05;
 	public static double gyrokD=.15;
-	public static double driveTrainkP = .5;
-	public static double driveTrainkI = .0;
-	public static double driveTrainkD = .0;
-	public static Potentiometer mastPotentiometer = new AnalogPotentiometer(0,360,0);
+	public static double driveTrainkP = .0012;
+	public static double driveTrainkI = .0000023;
+	public static double driveTrainkD = .002;
+	
 	
 	
 	
@@ -45,4 +44,8 @@ public class RobotMap {
 	//Climber Variables
 	
 	//Sensing Variables
+	
+	
+	
+	
 }
