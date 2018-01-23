@@ -9,7 +9,8 @@ package org.usfirst.frc.team2449.robot;
 
 import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
-import org.usfirst.frc.team2449.robot.commands.GyroTurn;
+import org.usfirst.frc.team2449.robot.commands.EncoderDistanceDrive;
+import org.usfirst.frc.team2449.robot.subsystems.BatteryInfo;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2449.robot.subsystems.Metrics;
 import org.usfirst.frc.team2449.robot.subsystems.Sensors;
@@ -35,11 +36,13 @@ public class Robot extends TimedRobot {
 	public static final Vision robotVision = new Vision();
 	public static final Metrics robotMetrics = new Metrics();
 	public static final Sensors robotSensors = new Sensors();
+	public static final BatteryInfo robotBattery = new BatteryInfo();
 	
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
+	SendableChooser<Command> scaleCapable = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -49,7 +52,10 @@ public class Robot extends TimedRobot {
 		m_oi = new OI();
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
+		
+		
 		SmartDashboard.putData("Auto mode", m_chooser);
+		;
 	}
 
 	/**
@@ -80,6 +86,12 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		m_autonomousCommand = m_chooser.getSelected();
 		new DisplayMetrics().start();
+		new EncoderDistanceDrive(720).start();
+		
+		//SmartDashboard Radio Buttons
+		
+		
+		
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -122,10 +134,13 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 		
 	}
-
+	public void testInit() {
+		
+	}
 	/**
 	 * This function is called periodically during test mode.
 	 */
 	public void testPeriodic() {
+		new EncoderDistanceDrive(720).start();
 	}
 }
