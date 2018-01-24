@@ -27,9 +27,13 @@ public class RobotMap {
 	public static double gyrokP=.03;
 	public static double gyrokI=.05;
 	public static double gyrokD=.15;
-	public static double driveTrainkP = .0012;
-	public static double driveTrainkI = .0000023;
-	public static double driveTrainkD = .002;
+	public static double driveTrainDistancekP = .0012;
+	public static double driveTrainDistancekI = .0000023;
+	public static double driveTrainDistancekD = .002;
+	public static double driveTrainVelocitykP = 0;
+	public static double driveTrainVelocitykI = 0;
+	public static double driveTrainVelocitykD = 0;
+	public static double driveTrainVelocitykF = 0;
 	
 	
 	

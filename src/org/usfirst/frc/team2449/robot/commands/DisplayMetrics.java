@@ -26,6 +26,7 @@ public class DisplayMetrics extends Command {
     	Robot.robotMetrics.displayDriveTrainDistance();
     	Robot.robotMetrics.displayCurrent();
     	Robot.robotMetrics.displayPotentiometer();
+    	Robot.robotMetrics.displayDriveTrainVelocity();
     }
 
     // Make this return true when this Command no longer needs to run execute()

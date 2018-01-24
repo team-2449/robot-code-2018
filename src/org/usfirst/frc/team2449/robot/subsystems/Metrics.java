@@ -22,8 +22,8 @@ public class Metrics extends Subsystem {
 	}
 
 	public void displayDriveTrainDistance() {
-		SmartDashboard.putNumber("Left Distance", Robot.robotSensors.left1Encoder.getDistance());
-		SmartDashboard.putNumber("Right Distance", Robot.robotSensors.right1Encoder.getDistance());
+		SmartDashboard.putNumber("Left Drivetrain Distance", Robot.robotSensors.left1Encoder.getDistance());
+		SmartDashboard.putNumber("Right Drivetrain Distance", Robot.robotSensors.right1Encoder.getDistance());
 		
 	}
 	
@@ -38,6 +38,11 @@ public class Metrics extends Subsystem {
 	
 	public void displayPotentiometer() {
 		SmartDashboard.putNumber("Potentiometer Degrees", Robot.robotSensors.mastPotentiometer.get());
+	}
+	
+	public void displayDriveTrainVelocity() {
+		SmartDashboard.putNumber("Left Drivetrain Velocity", Robot.robotSensors.left1Encoder.getRate());
+		SmartDashboard.putNumber("Right Drivetrain Velocity", Robot.robotSensors.right1Encoder.getRate());
 	}
 	
     public void initDefaultCommand() {

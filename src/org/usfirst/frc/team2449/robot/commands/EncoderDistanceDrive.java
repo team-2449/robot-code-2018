@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ *driveTrainDistancek
  */
 public class EncoderDistanceDrive extends Command {
 	
-	public PIDController leftPIDController = new PIDController(RobotMap.driveTrainkP,RobotMap.driveTrainkI,RobotMap.driveTrainkD,Robot.robotSensors.left1Encoder,Robot.robotDriveTrain.leftPIDGroup);
-	public PIDController rightPIDController = new PIDController(RobotMap.driveTrainkP,RobotMap.driveTrainkI,RobotMap.driveTrainkD,Robot.robotSensors.right1Encoder,Robot.robotDriveTrain.rightPIDGroup);
+	public PIDController leftPIDController = new PIDController(RobotMap.driveTrainDistancekP,RobotMap.driveTrainDistancekI,RobotMap.driveTrainDistancekD,Robot.robotSensors.left1Encoder,Robot.robotDriveTrain.leftPIDGroup);
+	public PIDController rightPIDController = new PIDController(RobotMap.driveTrainDistancekP,RobotMap.driveTrainDistancekI,RobotMap.driveTrainDistancekD,Robot.robotSensors.right1Encoder,Robot.robotDriveTrain.rightPIDGroup);
 	private double distance;
     public EncoderDistanceDrive(double distance) {
     	this.distance = distance;
