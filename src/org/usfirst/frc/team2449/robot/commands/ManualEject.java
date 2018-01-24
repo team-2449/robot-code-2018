@@ -1,16 +1,16 @@
 package org.usfirst.frc.team2449.robot.commands;
 
 import org.usfirst.frc.team2449.robot.Robot;
-import org.usfirst.frc.team2449.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ManualArm extends Command {
+public class ManualEject extends Command {
 
-    public ManualArm() {
+    public ManualEject() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.robotManipulator);
@@ -18,25 +18,16 @@ public class ManualArm extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.robotManipulator.setIntakePower(-1);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(Robot.m_oi.armUpButton.get()) {
-    		Robot.robotManipulator.setArmPower(RobotMap.armUpPower);
-    		
-    	}
-    	else if(Robot.m_oi.armDownButton.get()) {
-    		Robot.robotManipulator.setArmPower(RobotMap.armDownPower);
+    	if (Robot.m_oi.ejectButton.get()) {
+    		Robot.robotManipulator.setEjector(Value.kForward);
     	}
     	else {
-    		Robot.robotManipulator.setArmPower(0);
-    	}
-    	if(Robot.m_oi.manualIntakeButton.get()) {
-    		Robot.robotManipulator.setIntakePower(.6);
-    	}
-    	else {
-    		Robot.robotManipulator.setIntakePower(0);
+    		Robot.robotManipulator.setEjector(Value.kReverse);
     	}
     }
 
@@ -47,8 +38,8 @@ public class ManualArm extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.robotManipulator.setArmPower(0);
     	Robot.robotManipulator.setIntakePower(0);
+    	Robot.robotManipulator.setEjector(Value.kReverse);
     }
 
     // Called when another command which requires one or more of the same
