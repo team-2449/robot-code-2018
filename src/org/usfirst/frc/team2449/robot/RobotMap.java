@@ -27,8 +27,8 @@ public class RobotMap {
 	
 	//Manipulator Variables
 	public static int armTalonPort=6;
-	public static double armUpPower=.4;
-	public static double armDownPower=-.3;
+	public static double armUpPower=.8;
+	public static double armDownPower=-.5;
 	
 	//Climber Variables
 	

@@ -22,17 +22,17 @@ public class ManualArm extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(Robot.m_oi.armUpButton.get()) {
+    	if(Robot.m_oi.armUpButton.get()&&!Robot.m_oi.armDownButton.get()) {
     		Robot.robotManipulator.setArmPower(RobotMap.armUpPower);
     		
     	}
-    	else if(Robot.m_oi.armDownButton.get()) {
+    	else if(Robot.m_oi.armDownButton.get()&&!Robot.m_oi.armUpButton.get()) {
     		Robot.robotManipulator.setArmPower(RobotMap.armDownPower);
     	}
     	else {
     		Robot.robotManipulator.setArmPower(0);
     	}
-    	if(Robot.m_oi.manualIntakeButton.get()) {
+    	if(Robot.m_oi.armUpButton.get()&&Robot.m_oi.armDownButton.get()) {
     		Robot.robotManipulator.setIntakePower(.6);
     	}
     	else {
@@ -48,7 +48,7 @@ public class ManualArm extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	Robot.robotManipulator.setArmPower(0);
-    	Robot.robotManipulator.setIntakePower(0);
+    	//Robot.robotManipulator.setIntakePower(0);
     }
 
     // Called when another command which requires one or more of the same
