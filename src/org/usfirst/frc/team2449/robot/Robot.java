@@ -7,7 +7,7 @@
 
 package org.usfirst.frc.team2449.robot;
 
-import org.usfirst.frc.team2449.robot.commands.BasicDrive;
+import org.usfirst.frc.team2449.robot.commands.ClosedLoopDrive;
 import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
 import org.usfirst.frc.team2449.robot.commands.EncoderDistanceDrive;
 import org.usfirst.frc.team2449.robot.subsystems.BatteryInfo;
@@ -32,11 +32,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
 	
 	//SubSystems
-	public static final DriveTrain robotDriveTrain = new DriveTrain();
+	
 	public static final Vision robotVision = new Vision();
 	public static final Metrics robotMetrics = new Metrics();
 	public static final Sensors robotSensors = new Sensors();
 	public static final BatteryInfo robotBattery = new BatteryInfo();
+	public static final DriveTrain robotDriveTrain = new DriveTrain(robotSensors.left1Encoder,robotSensors.right1Encoder);
 	
 	public static OI m_oi;
 
@@ -122,7 +123,7 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
-		new BasicDrive().start();
+		new ClosedLoopDrive().start();
 		new DisplayMetrics().start();
 		
 	}

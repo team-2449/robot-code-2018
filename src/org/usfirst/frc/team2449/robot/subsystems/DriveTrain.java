@@ -7,6 +7,7 @@ import org.usfirst.frc.team2449.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -26,13 +27,20 @@ public class DriveTrain extends Subsystem {
 	TalonSRX right3Talon = new TalonSRX(RobotMap.right3TalonPort);
 	public PIDDriver leftPIDGroup = new PIDDriver(left1Talon,left2Talon,left3Talon);
 	public PIDDriver rightPIDGroup = new PIDDriver(right1Talon,right2Talon,right3Talon);
-	public PIDController leftPIDController = new PIDController(RobotMap.driveTrainVelocitykP,RobotMap.driveTrainVelocitykI,RobotMap.driveTrainVelocitykD,RobotMap.driveTrainVelocitykF,Robot.robotSensors.left1Encoder,leftPIDGroup);
-	public PIDController rightPIDController = new PIDController(RobotMap.driveTrainVelocitykP,RobotMap.driveTrainVelocitykI,RobotMap.driveTrainVelocitykD,RobotMap.driveTrainVelocitykF,Robot.robotSensors.right1Encoder,rightPIDGroup);
+	private Encoder leftEncoder;
+	private Encoder rightEncoder;
+	PIDController leftPIDController;
+	PIDController rightPIDController;
 	
-	public DriveTrain() {
+	
+	public DriveTrain(Encoder leftEncoder, Encoder rightEncoder) {
 		right1Talon.setInverted(true);
 		right2Talon.setInverted(true);
 		right3Talon.setInverted(true);
+		this.leftEncoder=leftEncoder;
+		this.rightEncoder=rightEncoder;
+		leftPIDController = new PIDController(RobotMap.driveTrainVelocitykP,RobotMap.driveTrainVelocitykI,RobotMap.driveTrainVelocitykD,RobotMap.driveTrainVelocitykF,leftEncoder,leftPIDGroup);
+		rightPIDController = new PIDController(RobotMap.driveTrainVelocitykP,RobotMap.driveTrainVelocitykI,RobotMap.driveTrainVelocitykD,RobotMap.driveTrainVelocitykF,rightEncoder,rightPIDGroup);
 	}
 	
     // Put methods for controlling this subsystem
@@ -49,13 +57,14 @@ public class DriveTrain extends Subsystem {
 	}
 	
 	public void setVelocity(double leftRate, double rightRate) {
+		this.enableVelocityControl();
 		leftPIDController.setSetpoint(leftRate);
     	rightPIDController.setSetpoint(rightRate);
 	}
 	
-	public void enableVelocityControl() {
-		Robot.robotSensors.left1Encoder.setPIDSourceType(PIDSourceType.kRate);
-    	Robot.robotSensors.right1Encoder.setPIDSourceType(PIDSourceType.kRate);
+	private void enableVelocityControl() {
+		leftEncoder.setPIDSourceType(PIDSourceType.kRate);
+    	rightEncoder.setPIDSourceType(PIDSourceType.kRate);
     	leftPIDController.enable();
     	rightPIDController.enable();
 	}
