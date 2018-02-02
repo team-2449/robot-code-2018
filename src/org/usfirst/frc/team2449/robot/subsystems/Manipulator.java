@@ -3,6 +3,7 @@ package org.usfirst.frc.team2449.robot.subsystems;
 import org.usfirst.frc.team2449.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Compressor;
@@ -30,6 +31,16 @@ public class Manipulator extends Subsystem {
 	public void setIntakePower(double intakePower) {
 		leftWheel.set(ControlMode.PercentOutput,intakePower);
 		rightWheel.set(ControlMode.PercentOutput,-intakePower);
+	}
+	
+	public void setupPID() {
+		rightWheel.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+		leftWheel.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+	}
+	
+	public void setIntakeRPMs(double RPMs) {
+		leftWheel.set(ControlMode.Velocity, RPMs);
+		rightWheel.set(ControlMode.Velocity, -RPMs);
 	}
 	
 	public void setEjector(DoubleSolenoid.Value value) {

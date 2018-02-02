@@ -32,7 +32,11 @@ public class RobotMap {
 	public static double armUpPower=.8;
 	public static double armDownPower=-.5;
 	public static double intakePower = .8;
-	
+	public static double intakeP = 0.05;
+	public static double intakeI = 0;
+	public static double intakeD = 0.5;
+	public static double intakeF = 0.0253;
+			
 	//Climber Variables
 	
 	//Sensing Variables
