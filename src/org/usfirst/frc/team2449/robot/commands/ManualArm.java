@@ -33,7 +33,7 @@ public class ManualArm extends Command {
     		Robot.robotManipulator.setArmPower(0);
     	}
     	if(Robot.m_oi.armUpButton.get()&&Robot.m_oi.armDownButton.get()) {
-    		Robot.robotManipulator.setIntakePower(.6);
+    		Robot.robotManipulator.setIntakePower(RobotMap.intakePower);
     	}
     	else {
     		Robot.robotManipulator.setIntakePower(0);

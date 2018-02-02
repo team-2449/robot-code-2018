@@ -1,9 +1,13 @@
 package org.usfirst.frc.team2449.robot.subsystems;
 
+import org.usfirst.frc.team2449.robot.RobotMap;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -13,19 +17,19 @@ public class Manipulator extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	Talon armTalon = new Talon(2);
-	Spark leftWheel=new Spark(0);
-	Spark rightWheel=new Spark(1);
+	Spark armSpark = new Spark(0);
+	TalonSRX leftWheel=new TalonSRX(RobotMap.leftIntakeTalonPort);
+	TalonSRX rightWheel=new TalonSRX(RobotMap.rightIntakeTalonPort);
 	Compressor robotCompressor = new Compressor();
-	DoubleSolenoid ejectorSolenoid = new DoubleSolenoid(0,1);
+	DoubleSolenoid ejectorSolenoid = new DoubleSolenoid(1,0);
 	
 	public void setArmPower(double armPower) {
-		armTalon.set(armPower);
+		armSpark.set(armPower);
 	}
 	
 	public void setIntakePower(double intakePower) {
-		leftWheel.set(intakePower);
-		rightWheel.set(-intakePower);
+		leftWheel.set(ControlMode.PercentOutput,intakePower);
+		rightWheel.set(ControlMode.PercentOutput,-intakePower);
 	}
 	
 	public void setEjector(DoubleSolenoid.Value value) {
