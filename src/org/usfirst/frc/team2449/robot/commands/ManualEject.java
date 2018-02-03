@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2449.robot.commands;
 
 import org.usfirst.frc.team2449.robot.Robot;
+import org.usfirst.frc.team2449.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
@@ -18,17 +19,19 @@ public class ManualEject extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.robotManipulator.setIntakePower(-1);
+    	Robot.robotManipulator.setIntakeVelocity(-RobotMap.ejectVelocity);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
     	if (Robot.m_oi.ejectButton.get()) {
     		Robot.robotManipulator.setEjector(Value.kForward);
     	}
     	else {
     		Robot.robotManipulator.setEjector(Value.kReverse);
     	}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

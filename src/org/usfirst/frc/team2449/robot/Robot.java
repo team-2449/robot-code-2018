@@ -113,7 +113,6 @@ public class Robot extends TimedRobot {
 		}
 		new BasicDrive().start();
 		new DisplayMetrics().start();
-		
 	}
 
 	/**
@@ -128,5 +127,6 @@ public class Robot extends TimedRobot {
 	 * This function is called periodically during test mode.
 	 */
 	public void testPeriodic() {
+		
 	}
 }

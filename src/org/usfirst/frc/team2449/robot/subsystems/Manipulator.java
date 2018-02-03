@@ -33,12 +33,7 @@ public class Manipulator extends Subsystem {
 		rightWheel.set(ControlMode.PercentOutput,-intakePower);
 	}
 	
-	public void setupPID() {
-		rightWheel.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-		leftWheel.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
-	}
-	
-	public void setIntakeRPMs(double RPMs) {
+	public void setIntakeVelocity(double RPMs) {
 		leftWheel.set(ControlMode.Velocity, RPMs);
 		rightWheel.set(ControlMode.Velocity, -RPMs);
 	}
@@ -46,6 +41,27 @@ public class Manipulator extends Subsystem {
 	public void setEjector(DoubleSolenoid.Value value) {
 		ejectorSolenoid.set(value);
 	}
+	
+	public Manipulator() {
+		//PID Config Setup
+		leftWheel.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+		rightWheel.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+		leftWheel.configNominalOutputForward(0, 0);
+		leftWheel.configNominalOutputReverse(-0, 0);
+		leftWheel.configPeakOutputForward(1, 0);
+		leftWheel.configPeakOutputReverse(-1, 0);
+		rightWheel.configNominalOutputForward(0, 0);
+		rightWheel.configNominalOutputReverse(-0, 0);
+		rightWheel.configPeakOutputForward(1, 0);
+		rightWheel.configPeakOutputReverse(-1, 0);
+		leftWheel.config_kP(0, RobotMap.intakeP, 10);
+		leftWheel.config_kI(0, RobotMap.intakeI, 10);
+		leftWheel.config_kD(0, RobotMap.intakeD, 10);
+		leftWheel.config_kF(0, RobotMap.intakeF, 10);
+		rightWheel.config_kP(0, RobotMap.intakeP, 10);
+		rightWheel.config_kI(0, RobotMap.intakeI, 10);
+		rightWheel.config_kD(0, RobotMap.intakeD, 10);
+		rightWheel.config_kF(0, RobotMap.intakeF, 10);}
 	
 
     public void initDefaultCommand() {
