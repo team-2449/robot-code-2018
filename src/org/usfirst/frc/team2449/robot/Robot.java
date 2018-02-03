@@ -126,6 +126,7 @@ public class Robot extends TimedRobot {
 		new ClosedLoopDrive().start();
 		new DisplayMetrics().start();
 		
+		
 	}
 
 	/**
@@ -133,6 +134,7 @@ public class Robot extends TimedRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("JoystickValue", m_oi.driverJoystick.getRawAxis(1));
 		
 	}
 	public void testInit() {

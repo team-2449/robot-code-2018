@@ -46,31 +46,57 @@ public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	public void basicDrive(double leftPower, double rightPower) {
+	public void setLeftPower(double leftPower) {
 		//Basic Driving using direct power mapping
 		left1Talon.set(ControlMode.PercentOutput, leftPower);
 		left2Talon.set(ControlMode.PercentOutput, leftPower);
 		left3Talon.set(ControlMode.PercentOutput, leftPower);
+	}
+	
+	public void setRightPower(double rightPower) {
+		//Basic Driving using direct power mapping
 		right1Talon.set(ControlMode.PercentOutput, rightPower);
 		right2Talon.set(ControlMode.PercentOutput, rightPower);
 		right3Talon.set(ControlMode.PercentOutput, rightPower);
 	}
 	
-	public void setVelocity(double leftRate, double rightRate) {
-		this.enableVelocityControl();
-		leftPIDController.setSetpoint(leftRate);
-    	rightPIDController.setSetpoint(rightRate);
+	public void setLeftVelocity(double leftRate) {
+		if(Math.abs(leftRate)>=Math.abs(leftEncoder.getRate())&&Math.abs(leftRate)>0.1) {
+			this.enableLeftVelocityControl();
+			leftPIDController.setSetpoint(leftRate);
+		}
+		else {
+			this.disableLeftVelocityControl();
+			this.setLeftPower(0);
+		}
 	}
 	
-	private void enableVelocityControl() {
+	private void enableLeftVelocityControl() {
 		leftEncoder.setPIDSourceType(PIDSourceType.kRate);
-    	rightEncoder.setPIDSourceType(PIDSourceType.kRate);
     	leftPIDController.enable();
+	}
+	
+	public void disableLeftVelocityControl() {
+		leftPIDController.disable();
+	}
+	
+	public void setRightVelocity(double rightRate) {
+		if(Math.abs(rightRate)>=Math.abs(rightEncoder.getRate())&&Math.abs(rightRate)>0.1) {
+			this.enableRightVelocityControl();
+			rightPIDController.setSetpoint(rightRate);
+		}
+		else {
+			this.disableRightVelocityControl();
+			this.setRightPower(0);
+		}
+	}
+	
+	private void enableRightVelocityControl() {
+    	rightEncoder.setPIDSourceType(PIDSourceType.kRate);
     	rightPIDController.enable();
 	}
 	
-	public void disableVelocityControl() {
-		leftPIDController.disable();
+	public void disableRightVelocityControl() {
     	rightPIDController.disable();
 	}
 

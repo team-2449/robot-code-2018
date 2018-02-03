@@ -30,8 +30,8 @@ public class RobotMap {
 	public static double driveTrainDistancekP = .0012;
 	public static double driveTrainDistancekI = .0000023;
 	public static double driveTrainDistancekD = .002;
-	public static double driveTrainVelocitykP = 0.001;
-	public static double driveTrainVelocitykI = 0.00001;
+	public static double driveTrainVelocitykP = 0.0005;
+	public static double driveTrainVelocitykI = 0;
 	public static double driveTrainVelocitykD = 0;
 	public static double driveTrainVelocitykF = 0.000434782608696;
 	

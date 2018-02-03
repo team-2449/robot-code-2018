@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ClosedLoopDrive extends Command {
-
+	
+	
     public ClosedLoopDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -22,7 +23,8 @@ public class ClosedLoopDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.robotDriveTrain.setVelocity(Robot.m_oi.driverJoystick.getRawAxis(1)*2000,Robot.m_oi.driverJoystick.getRawAxis(3)*2000 );
+    	Robot.robotDriveTrain.setLeftVelocity(-Robot.m_oi.driverJoystick.getRawAxis(1)*2000);
+    	Robot.robotDriveTrain.setRightVelocity(-Robot.m_oi.driverJoystick.getRawAxis(3)*2000);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,7 +34,8 @@ public class ClosedLoopDrive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.robotDriveTrain.disableVelocityControl();
+    	Robot.robotDriveTrain.disableLeftVelocityControl();
+    	Robot.robotDriveTrain.disableRightVelocityControl();
     }
 
     // Called when another command which requires one or more of the same
