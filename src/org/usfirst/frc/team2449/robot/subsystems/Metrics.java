@@ -20,6 +20,10 @@ public class Metrics extends Subsystem {
 	public void displayGyroHeading() {
 		SmartDashboard.putNumber("Gyro Heading", Robot.robotSensors.robotGyro.getAngle());
 	}
+	
+	public void displayIntakeVelocity() {
+		SmartDashboard.putNumber("Left Intake Velocity", Robot.robotManipulator.leftWheel.getSelectedSensorVelocity(0)*600/4096);
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

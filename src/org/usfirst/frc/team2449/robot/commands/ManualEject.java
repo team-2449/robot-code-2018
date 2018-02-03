@@ -5,6 +5,7 @@ import org.usfirst.frc.team2449.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -19,7 +20,7 @@ public class ManualEject extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.robotManipulator.setIntakeVelocity(-RobotMap.ejectVelocity);
+    	Robot.robotManipulator.setIntakeVelocity(-SmartDashboard.getNumber("SetVelocity", 0));
     }
 
     // Called repeatedly when this Command is scheduled to run

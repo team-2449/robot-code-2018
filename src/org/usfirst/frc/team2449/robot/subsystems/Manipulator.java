@@ -34,8 +34,8 @@ public class Manipulator extends Subsystem {
 	}
 	
 	public void setIntakeVelocity(double RPMs) {
-		leftWheel.set(ControlMode.Velocity, RPMs);
-		rightWheel.set(ControlMode.Velocity, -RPMs);
+		leftWheel.set(ControlMode.Velocity, RPMs*4096/600);
+		rightWheel.set(ControlMode.Velocity, -RPMs*4096/600);
 	}
 	
 	public void setEjector(DoubleSolenoid.Value value) {
@@ -61,7 +61,10 @@ public class Manipulator extends Subsystem {
 		rightWheel.config_kP(0, RobotMap.intakeP, 10);
 		rightWheel.config_kI(0, RobotMap.intakeI, 10);
 		rightWheel.config_kD(0, RobotMap.intakeD, 10);
-		rightWheel.config_kF(0, RobotMap.intakeF, 10);}
+		rightWheel.config_kF(0, RobotMap.intakeF, 10);
+		leftWheel.setInverted(true);
+		rightWheel.setInverted(true);
+		}
 	
 
     public void initDefaultCommand() {
