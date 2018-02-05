@@ -25,13 +25,19 @@ public class RobotMap {
 	public static double gyrokI=.05;
 	public static double gyrokD=.15;
 	
-	
-	//Control Variables
-	public static int driverJoystickPort=0;
-
-	
 	//Manipulator Variables
-	
+	public static int armTalonPort=0;
+	public static int leftIntakeTalonPort=6;
+	public static int rightIntakeTalonPort=7;
+	public static double armUpPower=.5;
+	public static double armDownPower=-.5;
+	public static double intakeVelocity = 1000;
+	public static double intakeP = 0.1;
+	public static double intakeI = 0.0005;
+	public static double intakeD = 5;
+	public static double intakeF = 0.066;
+	public static double ejectVelocity = 2800;
+			
 	//Climber Variables
 	
 	//Sensing Variables
