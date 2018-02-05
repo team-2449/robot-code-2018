@@ -28,9 +28,11 @@ public class ManualEject extends Command {
     	
     	if (Robot.m_oi.ejectButton.get()) {
     		Robot.robotManipulator.setEjector(Value.kForward);
+    		Robot.robotManipulator.setIntakePower(-1);
     	}
     	else {
     		Robot.robotManipulator.setEjector(Value.kReverse);
+    		Robot.robotManipulator.setIntakeVelocity(-SmartDashboard.getNumber("SetVelocity", 0));
     	}
     	
     }
