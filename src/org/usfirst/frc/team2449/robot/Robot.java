@@ -113,7 +113,6 @@ public class Robot extends TimedRobot {
 		}
 		new BasicDrive().start();
 		new DisplayMetrics().start();
-		SmartDashboard.putNumber("SetVelocity", 0);
 	}
 
 	/**

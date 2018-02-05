@@ -36,7 +36,7 @@ public class RobotMap {
 	public static double intakeI = 0.0005;
 	public static double intakeD = 5;
 	public static double intakeF = 0.066;
-	public static double ejectVelocity = 2500;
+	public static double ejectVelocity = 2800;
 			
 	//Climber Variables
 	

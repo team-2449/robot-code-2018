@@ -20,7 +20,7 @@ public class ManualEject extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.robotManipulator.setIntakeVelocity(-SmartDashboard.getNumber("SetVelocity", 0));
+    	Robot.robotManipulator.setIntakeVelocity(-RobotMap.ejectVelocity);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -32,7 +32,7 @@ public class ManualEject extends Command {
     	}
     	else {
     		Robot.robotManipulator.setEjector(Value.kReverse);
-    		Robot.robotManipulator.setIntakeVelocity(-SmartDashboard.getNumber("SetVelocity", 0));
+    		Robot.robotManipulator.setIntakeVelocity(-RobotMap.ejectVelocity);
     	}
     	
     }
