@@ -30,7 +30,7 @@ public class RobotMap {
 	public static int leftIntakeTalonPort=6;
 	public static int rightIntakeTalonPort=7;
 	public static double armUpPower=.5;
-	public static double armDownPower=-.5;
+	public static double armDownPower=.5;
 	public static double intakeVelocity = 1000;
 	public static double intakeP = 0.1;
 	public static double intakeI = 0.0005;

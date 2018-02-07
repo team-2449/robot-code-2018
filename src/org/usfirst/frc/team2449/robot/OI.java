@@ -7,9 +7,9 @@
 
 package org.usfirst.frc.team2449.robot;
 
-import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.commands.ManualArm;
 import org.usfirst.frc.team2449.robot.commands.ManualEject;
+import org.usfirst.frc.team2449.robot.commands.ManualIntake;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -48,7 +48,7 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-	//The following block is control code for a Logitect Gamepad
+	//The following block is control code for a Logitech Gamepad
 	public Joystick driverJoystick = new Joystick(0);
 	public Button armUpButton = new JoystickButton(driverJoystick,5);
 	public Button armDownButton = new JoystickButton(driverJoystick,7);
@@ -57,8 +57,9 @@ public class OI {
 	public Button ejectButton = new JoystickButton(driverJoystick,2);
 	
 	public OI() {
-		armUpButton.whileHeld(new ManualArm());
-		armDownButton.whileHeld(new ManualArm());
+		armUpButton.whileHeld(new ManualArm(RobotMap.armUpPower));
+		armDownButton.whileHeld(new ManualArm(-RobotMap.armDownPower));
 		intakeReverseButton.whileHeld(new ManualEject());
+		manualIntakeButton.whileHeld(new ManualIntake());
 	}
 }

@@ -14,19 +14,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class Manipulator extends Subsystem {
+public class Intake extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	Spark armSpark = new Spark(0);
 	TalonSRX leftWheel=new TalonSRX(RobotMap.leftIntakeTalonPort);
 	TalonSRX rightWheel=new TalonSRX(RobotMap.rightIntakeTalonPort);
 	Compressor robotCompressor = new Compressor();
 	DoubleSolenoid ejectorSolenoid = new DoubleSolenoid(1,0);
-	
-	public void setArmPower(double armPower) {
-		armSpark.set(armPower);
-	}
 	
 	public void setIntakePower(double intakePower) {
 		leftWheel.set(ControlMode.PercentOutput,intakePower);
@@ -42,7 +37,7 @@ public class Manipulator extends Subsystem {
 		ejectorSolenoid.set(value);
 	}
 	
-	public Manipulator() {
+	public Intake() {
 		//PID Config Setup
 		leftWheel.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
 		rightWheel.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
