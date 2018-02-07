@@ -19,10 +19,6 @@ public class Arm extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	Spark armSpark = new Spark(RobotMap.armTalonPort);
-	TalonSRX leftWheel=new TalonSRX(RobotMap.leftIntakeTalonPort);
-	TalonSRX rightWheel=new TalonSRX(RobotMap.rightIntakeTalonPort);
-	Compressor robotCompressor = new Compressor();
-	DoubleSolenoid ejectorSolenoid = new DoubleSolenoid(1,0);
 	
 	public void setArmPower(double armPower) {
 		armSpark.set(armPower);
