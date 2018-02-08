@@ -15,24 +15,24 @@ public class ManualEject extends Command {
     public ManualEject() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.robotManipulator);
+    	requires(Robot.robotIntake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.robotManipulator.setIntakeVelocity(-RobotMap.ejectVelocity);
+    	Robot.robotIntake.setIntakeVelocity(-RobotMap.ejectVelocity);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
     	if (Robot.m_oi.ejectButton.get()) {
-    		Robot.robotManipulator.setEjector(Value.kForward);
-    		Robot.robotManipulator.setIntakePower(-1);
+    		Robot.robotIntake.setEjector(Value.kForward);
+    		Robot.robotIntake.setIntakePower(-1);
     	}
     	else {
-    		Robot.robotManipulator.setEjector(Value.kReverse);
-    		Robot.robotManipulator.setIntakeVelocity(-RobotMap.ejectVelocity);
+    		Robot.robotIntake.setEjector(Value.kReverse);
+    		Robot.robotIntake.setIntakeVelocity(-RobotMap.ejectVelocity);
     	}
     	
     }
@@ -44,8 +44,8 @@ public class ManualEject extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.robotManipulator.setIntakePower(0);
-    	Robot.robotManipulator.setEjector(Value.kReverse);
+    	Robot.robotIntake.setIntakePower(0);
+    	Robot.robotIntake.setEjector(Value.kReverse);
     }
 
     // Called when another command which requires one or more of the same

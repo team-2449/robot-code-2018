@@ -1,0 +1,32 @@
+package org.usfirst.frc.team2449.robot.subsystems;
+
+import org.usfirst.frc.team2449.robot.RobotMap;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+/**
+ *
+ */
+public class Arm extends Subsystem {
+
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+	Spark armSpark = new Spark(RobotMap.armTalonPort);
+	
+	public void setArmPower(double armPower) {
+		armSpark.set(armPower);
+	}
+
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+    }
+}
+

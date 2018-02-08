@@ -22,7 +22,7 @@ public class Metrics extends Subsystem {
 	}
 	
 	public void displayIntakeVelocity() {
-		SmartDashboard.putNumber("Left Intake Velocity", Robot.robotManipulator.leftWheel.getSelectedSensorVelocity(0)*600/4096);
+		SmartDashboard.putNumber("Left Intake Velocity", Robot.robotIntake.leftWheel.getSelectedSensorVelocity(0)*600/4096);
 	}
 
     public void initDefaultCommand() {

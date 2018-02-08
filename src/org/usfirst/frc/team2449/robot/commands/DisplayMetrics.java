@@ -22,8 +22,8 @@ public class DisplayMetrics extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.robotMetrics.displayTeamColor();
-    	Robot.robotMetrics.displayGyroHeading();
-    	Robot.robotMetrics.displayIntakeVelocity();
+    	//Robot.robotMetrics.displayGyroHeading();
+    	//Robot.robotMetrics.displayIntakeVelocity();
     }
 
     // Make this return true when this Command no longer needs to run execute()
