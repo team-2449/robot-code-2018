@@ -21,6 +21,7 @@ public class ManualEject extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.robotIntake.setIntakeVelocity(-RobotMap.ejectVelocity);
+    	Robot.robotCompressor.enableCompressor();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -46,6 +47,7 @@ public class ManualEject extends Command {
     protected void end() {
     	Robot.robotIntake.setIntakePower(0);
     	Robot.robotIntake.setEjector(Value.kReverse);
+    	Robot.robotCompressor.disableCompressor();
     }
 
     // Called when another command which requires one or more of the same
