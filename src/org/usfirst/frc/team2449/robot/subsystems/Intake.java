@@ -20,7 +20,6 @@ public class Intake extends Subsystem {
     // here. Call these from Commands.
 	TalonSRX leftWheel=new TalonSRX(RobotMap.leftIntakeTalonPort);
 	TalonSRX rightWheel=new TalonSRX(RobotMap.rightIntakeTalonPort);
-	
 	DoubleSolenoid ejectorSolenoid = new DoubleSolenoid(1,0);
 	
 	public void setIntakePower(double intakePower) {
