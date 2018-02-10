@@ -16,11 +16,13 @@ public class ManualEject extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.robotIntake);
+    	requires(Robot.robotCompressor);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	Robot.robotIntake.setIntakeVelocity(-RobotMap.ejectVelocity);
+    	Robot.robotCompressor.enableCompressor();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -46,6 +48,7 @@ public class ManualEject extends Command {
     protected void end() {
     	Robot.robotIntake.setIntakePower(0);
     	Robot.robotIntake.setEjector(Value.kReverse);
+    	Robot.robotCompressor.enableCompressor();
     }
 
     // Called when another command which requires one or more of the same

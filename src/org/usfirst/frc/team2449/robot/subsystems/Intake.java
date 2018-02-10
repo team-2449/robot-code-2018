@@ -6,9 +6,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -20,7 +18,6 @@ public class Intake extends Subsystem {
     // here. Call these from Commands.
 	TalonSRX leftWheel=new TalonSRX(RobotMap.leftIntakeTalonPort);
 	TalonSRX rightWheel=new TalonSRX(RobotMap.rightIntakeTalonPort);
-	Compressor robotCompressor = new Compressor();
 	DoubleSolenoid ejectorSolenoid = new DoubleSolenoid(1,0);
 	
 	public void setIntakePower(double intakePower) {

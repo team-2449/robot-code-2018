@@ -10,6 +10,7 @@ package org.usfirst.frc.team2449.robot;
 import org.usfirst.frc.team2449.robot.commands.BasicDrive;
 import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
 import org.usfirst.frc.team2449.robot.subsystems.Arm;
+import org.usfirst.frc.team2449.robot.subsystems.CompressorSystem;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2449.robot.subsystems.Intake;
 import org.usfirst.frc.team2449.robot.subsystems.Metrics;
@@ -38,6 +39,7 @@ public class Robot extends TimedRobot {
 	public static final Sensors robotSensors = new Sensors();
 	public static final Arm robotArm= new Arm();
 	public static final Intake robotIntake = new Intake();
+	public static final CompressorSystem robotCompressor = new CompressorSystem();
 	
 	public static OI m_oi;
 
