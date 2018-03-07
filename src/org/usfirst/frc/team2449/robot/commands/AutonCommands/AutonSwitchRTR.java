@@ -13,11 +13,11 @@ public class AutonSwitchRTR extends CommandGroup {
     public AutonSwitchRTR() {
     	requires(Robot.robotSensors);
     	requires(Robot.robotDriveTrain);
-    	addSequential(new DriveCommand(12.5));
-    	addParallel(new RaiseArm());
+    	//addSequential(new DriveCommand(12.5));
+    	//addParallel(new RaiseArm());
     	addSequential(new GyroTurn(-90));
-    	addSequential(new DriveCommand(99.9)); //Figure Out Needed Distance
-    	addSequential(new EjectCube());
+    	//addSequential(new DriveCommand(99.9)); //Figure Out Needed Distance
+    	//addSequential(new EjectCube());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

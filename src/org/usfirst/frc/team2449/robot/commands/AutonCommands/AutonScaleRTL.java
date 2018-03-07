@@ -13,13 +13,13 @@ public class AutonScaleRTL extends CommandGroup {
     public AutonScaleRTL() {
     	requires(Robot.robotSensors);
     	requires(Robot.robotDriveTrain);
-    	addSequential(new DriveCommand(17.5));
-    	addParallel(new RaiseArm());
+    	//addSequential(new DriveCommand(17.5));
+    	//addParallel(new RaiseArm());
     	addSequential(new GyroTurn(-90));
-    	addSequential(new DriveCommand(17.5));
+    	//addSequential(new DriveCommand(17.5));
     	addSequential(new GyroTurn(90));
-    	addSequential(new DriveCommand(99.9)); //Need to figure out Distance
-    	addSequential(new EjectCube());
+    	//addSequential(new DriveCommand(99.9)); //Need to figure out Distance
+    	//addSequential(new EjectCube());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
