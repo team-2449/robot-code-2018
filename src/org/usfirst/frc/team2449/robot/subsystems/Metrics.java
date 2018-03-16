@@ -13,12 +13,13 @@ public class Metrics extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
+	
 	public void displayTeamColor() {
 		SmartDashboard.putString("Team Color", Robot.robotVision.getTeamColor().toString());
 	}
 	
 	public void displayGyroHeading() {
-		SmartDashboard.putNumber("Gyro Heading", Robot.robotSensors.robotGyro.getAngle());
+		SmartDashboard.putNumber("Gyro Heading", Robot.robotSensors.getHeading());
 	}
 	
 	public void displayIntakeVelocity() {

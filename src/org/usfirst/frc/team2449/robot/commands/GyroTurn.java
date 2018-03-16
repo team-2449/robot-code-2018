@@ -20,37 +20,35 @@ public class GyroTurn extends Command {
     	requires(Robot.robotDriveTrain);
     	requires(Robot.robotSensors);
     }
-    PIDController leftGyroController=new PIDController(RobotMap.gyrokP, RobotMap.gyrokI, RobotMap.gyrokD, Robot.robotSensors.robotGyro,Robot.robotDriveTrain.leftPIDGroup);
-    PIDController rightGyroController=new PIDController(RobotMap.gyrokP, RobotMap.gyrokI, RobotMap.gyrokD, Robot.robotSensors.robotGyro,Robot.robotDriveTrain.rightPIDGroup);
-    // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.robotSensors.robotGyro.reset();
-    	Robot.robotSensors.robotGyro.setPIDSourceType(PIDSourceType.kDisplacement);
-    	leftGyroController.setAbsoluteTolerance(5);
-    	rightGyroController.setAbsoluteTolerance(5);
-		leftGyroController.setSetpoint(turnAngle);
-    	rightGyroController.setSetpoint(turnAngle);
-    	leftGyroController.enable();
-    	rightGyroController.enable();
+    	Robot.robotSensors.tarePigeon();
+    	currentOffset=turnAngle-Robot.robotSensors.getHeading();
+    	currentPower=1;
     }
-
+    private double currentOffset;
+    private double currentRate;
+    private double currentPower;
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	currentOffset=turnAngle-Robot.robotSensors.getHeading();
+    	currentRate=Robot.robotSensors.getTurnRate();
+    	currentPower=currentOffset*RobotMap.pigeonTurnkP-currentRate*RobotMap.pigeonTurnkD;
+    	Robot.robotDriveTrain.basicDrive(-currentPower, currentPower);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return leftGyroController.onTarget()&&rightGyroController.onTarget();
+    	return (Math.abs(currentPower)<0.01);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	leftGyroController.disable();
-    	rightGyroController.disable();
+    	Robot.robotDriveTrain.basicDrive(0, 0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	this.end();
     }
 }
