@@ -21,9 +21,19 @@ public class RobotMap {
 	public static int right1TalonPort=3;
 	public static int right2TalonPort=4;
 	public static int right3TalonPort=5;
-	public static double gyrokP=.03;
-	public static double gyrokI=.05;
-	public static double gyrokD=.15;
+	public static double pigeonTurnkP=.005;
+	public static double pigeonTurnkI=0;
+	public static double pigeonTurnkD=0.005;
+	public static double pigeonTurnMin=0.20;
+	public static double limelightTurnkP=0.00;
+	public static double limelightTurnC=0.45;
+	public static double distancekF = 0.2;
+	public static double distancekP = 0.22;
+	public static double distancekI = 0;
+	public static double distancekD = 0.4;
+	public static int cruiseVelocity = 4000;
+	public static int rampRate = 1500;
+	public static int distanceMult = 3571;
 	
 	//Manipulator Variables
 	public static int armTalonPort=0;
@@ -39,6 +49,11 @@ public class RobotMap {
 	public static double ejectVelocity = 2800;
 			
 	//Climber Variables
+	public static int climber1TalonPort = 8;
+	public static int climber2TalonPort = 9;
+	public static double climberStartPower = 0.8;
 	
 	//Sensing Variables
+	//##IMPORTANT## I can't easily set the talon for the pigeon or mag encoder, they will be left here as comments
+	//and can be changed in the Sensors class  --Alex
 }

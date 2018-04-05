@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2449.robot.commands;
+package org.usfirst.frc.team2449.robot.commands.DriveCommands;
 
 import org.usfirst.frc.team2449.robot.Robot;
 
@@ -22,7 +22,7 @@ public class BasicDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.robotDriveTrain.basicDrive(Robot.m_oi.driverJoystick.getRawAxis(1), Robot.m_oi.driverJoystick.getRawAxis(3));
+    	Robot.robotDriveTrain.basicDrive(-Robot.m_oi.driverJoystick.getRawAxis(1), -Robot.m_oi.driverJoystick.getRawAxis(3));
     }
 
     // Make this return true when this Command no longer needs to run execute()

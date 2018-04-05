@@ -1,7 +1,8 @@
 package org.usfirst.frc.team2449.robot.commands.AutonCommands;
 
 import org.usfirst.frc.team2449.robot.Robot;
-import org.usfirst.frc.team2449.robot.commands.GyroTurn;
+import org.usfirst.frc.team2449.robot.commands.DriveCommands.GyroTurn;
+import org.usfirst.frc.team2449.robot.commands.DriveCommands.StraightDrive;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -13,9 +14,9 @@ public class AutonScaleLTL extends CommandGroup {
     public AutonScaleLTL() {
     	requires(Robot.robotSensors);
     	requires(Robot.robotDriveTrain);
-    	//addSequential(new DriveCommand(25.5));
+    	addSequential(new StraightDrive(25.5));
     	//addParallel(new RaiseArm());
-    	addSequential(new GyroTurn(90));
+    	addSequential(new GyroTurn(-90));
     	//addSequential(new DriveCommand(99.9)); //Figure Out Needed Distance
     	//addSequential(new EjectCube());
         // Add Commands here:
