@@ -9,10 +9,10 @@ package org.usfirst.frc.team2449.robot;
 
 import org.usfirst.frc.team2449.robot.commands.CalibratePigeon;
 import org.usfirst.frc.team2449.robot.commands.DisplayMetrics;
-import org.usfirst.frc.team2449.robot.commands.GyroTurn;
+import org.usfirst.frc.team2449.robot.commands.AutonCommands.AutonChooser;
 import org.usfirst.frc.team2449.robot.commands.DriveCommands.BasicDrive;
-import org.usfirst.frc.team2449.robot.commands.DriveCommands.CubeDrive;
 import org.usfirst.frc.team2449.robot.subsystems.Arm;
+import org.usfirst.frc.team2449.robot.subsystems.Climber;
 import org.usfirst.frc.team2449.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2449.robot.subsystems.Intake;
 import org.usfirst.frc.team2449.robot.subsystems.Limelight;
@@ -43,12 +43,13 @@ public class Robot extends TimedRobot {
 	public static final Arm robotArm= new Arm();
 	public static final Intake robotIntake = new Intake();
 	public static final Limelight robotLimelight = new Limelight();
+	public static final Climber robotClimber = new Climber();
 	
 	public static OI m_oi;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
-
+	public static final SendableChooser<Boolean> sideChooser = new SendableChooser<>();
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -58,6 +59,10 @@ public class Robot extends TimedRobot {
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		sideChooser.addDefault("Left", false);
+		sideChooser.addObject("right", true);
+		SmartDashboard.putData("Starting Side",sideChooser);
+		robotLimelight.setLight(2);
 	}
 
 	/**
@@ -99,7 +104,7 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
-		new GyroTurn(-90).start();
+		new AutonChooser().start();
 	}
 
 	/**

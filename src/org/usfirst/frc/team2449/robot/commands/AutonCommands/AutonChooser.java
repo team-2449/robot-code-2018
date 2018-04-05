@@ -1,26 +1,16 @@
 package org.usfirst.frc.team2449.robot.commands.AutonCommands;
 
 import org.usfirst.frc.team2449.robot.Robot;
-import org.usfirst.frc.team2449.robot.commands.DriveCommands.GyroTurn;
-import org.usfirst.frc.team2449.robot.commands.DriveCommands.StraightDrive;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class AutonScaleLTR extends CommandGroup {
+public class AutonChooser extends CommandGroup {
 
-    public AutonScaleLTR() {
-    	requires(Robot.robotSensors);
-    	requires(Robot.robotDriveTrain);
-    	addSequential(new StraightDrive(17.5));
-    	//addParallel(new RaiseArm());
-    	addSequential(new GyroTurn(-90));
-    	addSequential(new StraightDrive(16.5));
-    	addSequential(new GyroTurn(90));
-    	//addSequential(new StraightDrive(4)); //Need to figure out Distance
-    	//addSequential(new EjectCube());
+    public AutonChooser() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -37,5 +27,19 @@ public class AutonScaleLTR extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	
+    	if(!Robot.sideChooser.getSelected()) {
+    		if(!Robot.robotSensors.getScaleSide()) {
+    			new AutonScaleLTL().start();
+    		}else {
+    			new AutonScaleLTR().start();
+    		}
+    	}else {
+    		if(!Robot.robotSensors.getScaleSide()) {
+    			new AutonScaleRTL().start();
+    		}else {
+    			new AutonScaleRTR().start();
+    		}
+    	}
     }
 }

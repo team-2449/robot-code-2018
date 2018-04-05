@@ -10,7 +10,9 @@ package org.usfirst.frc.team2449.robot;
 import org.usfirst.frc.team2449.robot.commands.ManualArm;
 import org.usfirst.frc.team2449.robot.commands.ManualEject;
 import org.usfirst.frc.team2449.robot.commands.ManualIntake;
+import org.usfirst.frc.team2449.robot.commands.DriveCommands.CancelDrive;
 import org.usfirst.frc.team2449.robot.commands.DriveCommands.CubeDrive;
+import org.usfirst.frc.team2449.robot.commands.DriveCommands.GyroTurn;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -57,6 +59,8 @@ public class OI {
 	public Button intakeReverseButton = new JoystickButton(driverJoystick,6);
 	public Button ejectButton = new JoystickButton(driverJoystick,2);
 	public Button cubeDriveButton = new JoystickButton(driverJoystick,1);
+	public Button cancelButton  =new JoystickButton(driverJoystick,3);
+	public Button testButton = new JoystickButton(driverJoystick,9);
 	
 	public OI() {
 		armUpButton.whileHeld(new ManualArm(RobotMap.armUpPower));
@@ -64,5 +68,7 @@ public class OI {
 		intakeReverseButton.whileHeld(new ManualEject());
 		manualIntakeButton.whileHeld(new ManualIntake());
 		cubeDriveButton.whenPressed(new CubeDrive());
+		cancelButton.whenPressed(new CancelDrive());
+		testButton.whenPressed(new GyroTurn(90));
 	}
 }

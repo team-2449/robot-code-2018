@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2449.robot.commands;
+package org.usfirst.frc.team2449.robot.commands.DriveCommands;
 
 import org.usfirst.frc.team2449.robot.Robot;
 import org.usfirst.frc.team2449.robot.RobotMap;
@@ -33,12 +33,15 @@ public class GyroTurn extends Command {
     	currentOffset=turnAngle-Robot.robotSensors.getHeading();
     	currentRate=Robot.robotSensors.getTurnRate();
     	currentPower=currentOffset*RobotMap.pigeonTurnkP-currentRate*RobotMap.pigeonTurnkD;
+    	if (Math.abs(currentPower)<RobotMap.pigeonTurnMin) {
+    		currentPower=RobotMap.pigeonTurnMin*Math.signum(currentPower);
+    	}
     	Robot.robotDriveTrain.basicDrive(-currentPower, currentPower);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return (Math.abs(currentPower)<0.01);
+    	return (Math.abs(currentOffset)<1);
     }
 
     // Called once after isFinished returns true

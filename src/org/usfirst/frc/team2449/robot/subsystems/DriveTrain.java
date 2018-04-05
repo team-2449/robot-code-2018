@@ -15,12 +15,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class DriveTrain extends Subsystem {
 
 	
-	TalonSRX left1Talon = new TalonSRX(RobotMap.left1TalonPort);
-	TalonSRX left2Talon = new TalonSRX(RobotMap.left2TalonPort);
-	TalonSRX left3Talon = new TalonSRX(RobotMap.left3TalonPort);
-	TalonSRX right1Talon = new TalonSRX(RobotMap.right1TalonPort);
-	TalonSRX right2Talon = new TalonSRX(RobotMap.right2TalonPort);
-	TalonSRX right3Talon = new TalonSRX(RobotMap.right3TalonPort);
+	public TalonSRX left1Talon = new TalonSRX(RobotMap.left1TalonPort);
+	public TalonSRX left2Talon = new TalonSRX(RobotMap.left2TalonPort);
+	public TalonSRX left3Talon = new TalonSRX(RobotMap.left3TalonPort);
+	public TalonSRX right1Talon = new TalonSRX(RobotMap.right1TalonPort);
+	public TalonSRX right2Talon = new TalonSRX(RobotMap.right2TalonPort);
+	public TalonSRX right3Talon = new TalonSRX(RobotMap.right3TalonPort);
 	public PIDDriver leftPIDGroup = new PIDDriver(left1Talon,left2Talon,left3Talon);
 	public PIDDriver rightPIDGroup = new PIDDriver(right1Talon,right2Talon,right3Talon);
 
@@ -41,6 +41,8 @@ public class DriveTrain extends Subsystem {
 		right1Talon.setInverted(true);
 		right2Talon.setInverted(true);
 		right3Talon.setInverted(true);
+		right1Talon.setSensorPhase(true);
+		left1Talon.setSensorPhase(true);
 	}
 
     public void initDefaultCommand() {

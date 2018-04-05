@@ -2,8 +2,10 @@ package org.usfirst.frc.team2449.robot.subsystems;
 
 import org.usfirst.frc.team2449.robot.Robot;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.sensors.PigeonIMU;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -28,6 +30,18 @@ public class Sensors extends Subsystem {
 	public double getTurnRate() {
 		robotIMU.getYawPitchRoll(robotYPR);
 		return robotYPR[2];
+	}
+	
+	public boolean getCloseSwitchSide() { //False for L, True for R
+		return DriverStation.getInstance().getGameSpecificMessage().toCharArray()[0]=='R';
+	}
+	
+	public boolean getScaleSide() { //False for L, True for R
+		return DriverStation.getInstance().getGameSpecificMessage().toCharArray()[1]=='R';
+	}
+	
+	public boolean getFarSwitchSide() { //False for L, True for R
+		return DriverStation.getInstance().getGameSpecificMessage().toCharArray()[2]=='R';
 	}
 
     public void initDefaultCommand() {
