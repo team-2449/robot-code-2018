@@ -1,29 +1,25 @@
-package org.usfirst.frc.team2449.robot.commands;
+package org.usfirst.frc.team2449.robot.commands.DriveCommands;
 
-import org.usfirst.frc.team2449.robot.Robot;
-
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
  *
  */
-public class DisplayMetrics extends Command {
+public class CancelDrive extends InstantCommand {
 
-    public DisplayMetrics() {
+    public CancelDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.robotMetrics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Scheduler.getInstance().removeAll();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.robotMetrics.displayTeamColor();
-    	Robot.robotMetrics.displayGyroHeading();
-    	//Robot.robotMetrics.displayIntakeVelocity();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,6 +29,7 @@ public class DisplayMetrics extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	new BasicDrive().start();
     }
 
     // Called when another command which requires one or more of the same

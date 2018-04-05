@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2449.robot.commands;
+package org.usfirst.frc.team2449.robot.commands.ClimbCommands;
 
 import org.usfirst.frc.team2449.robot.Robot;
 
@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DisplayMetrics extends Command {
+public class Climb extends Command {
 
-    public DisplayMetrics() {
+    public Climb() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.robotMetrics);
+    	requires(Robot.robotClimber);
     }
 
     // Called just before this Command runs the first time
@@ -21,9 +21,7 @@ public class DisplayMetrics extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.robotMetrics.displayTeamColor();
-    	Robot.robotMetrics.displayGyroHeading();
-    	//Robot.robotMetrics.displayIntakeVelocity();
+    	Robot.robotClimber.setPower(Robot.robotClimber.climbPower);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,10 +31,12 @@ public class DisplayMetrics extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.robotClimber.setPower(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	this.end();
     }
 }
